@@ -1,20 +1,20 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-# File:                 pipe-pastebin
+# File:                 pastebin.py
 # Author:               Lasse Vang Gravesen <gravesenlasse@gmail.com>
 # Description:          Upload file contents to Pastebin, for GNU/Linux. Example usage: 
 # Input:                cat loremipsum | pastebin --syntax text
 # Output:               http://pastebin.com/TNEXMaYE
 # Start date:           10-06-2011 02:24
-# Last edited date:     10-06-2011 23:56
+# Last edited date:     11-06-2011 00:42
 
 import sys
 import argparse
 import urllib
 import urllib2
 
-VERSION = "1.0.0"
+VERSION = "1.0.1"
 
 def pastebin(content, syntax=None, private=None):
     api_url = 'http://pastebin.com/api/api_post.php'

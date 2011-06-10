@@ -1,19 +1,19 @@
 #!/usr/bin/python
 """Upload file contents to Pastebin."""
-from pipe-pastebin import VERSION
+from pastebin import VERSION
 from distutils.core import setup
 
 setup_kwargs = dict(
-    name="pipe-pastebin",
+    name="pastebin",
     version=VERSION,
     description="Upload file contents to Pastebin",
     author="Lasse Vang Gravesen",
     author_email="gravesenlasse@gmail.com",
     packages=[
-        "pipe-pastebin/",
+        "pastebin/",
     ],
     scripts=[
-        "bin/pipe-pastebin",
+        "bin/pastebin",
     ],
     long_description=" ".join(__doc__.strip().splitlines()),
     classifiers=[

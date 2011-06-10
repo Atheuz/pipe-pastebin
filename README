@@ -1,12 +1,12 @@
-pipe-pastebin 1.0.1 ALPHA
+pastebin 1.0.1 ALPHA
 ====================
-pipe-pastebin is a command-line script that uploads file contents to Pastebin.
+pastebin is a command-line script that uploads file contents to Pastebin.
 
 Example usage:
 
-cat diff5532.diff | pipe-pastebin --syntax diff
-cat loremipsum | pipe-pastebin --private 1
-pipe-pastebin --content README
+cat diff5532.diff | pastebin --syntax diff
+cat loremipsum | pastebin --private 1
+pastebin --content README
 
 Options:
 -c/--content - Set file to send to pastebin, set to stdin on default. 
@@ -15,12 +15,12 @@ Options:
 
 Requirements & Installation
 ---------------------------
-pipe-pastebin requires Python 2.4 or greater and the argparse module. It can be installed with the standard Python installation procedure:
+pastebin requires Python 2.4 or greater and the argparse module. It can be installed with the standard Python installation procedure:
 
-    1) Go to bin/pipe-pastebin and set your api_dev_key and possibly your api_user_key,
+    1) Go to bin/pastebin and set your api_dev_key and possibly your api_user_key,
     though you can also just not do that and just upload as a guest.
 
-    2) Copy the contents of bin/pipe-pastebin to pipe-pastebin/pipe-pastebin.py
+    2) Copy the contents of bin/pastebin to pastebin/pastebin.py
 
     3) python setup.py install
 
