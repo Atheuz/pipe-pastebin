@@ -1,0 +1,1 @@
+from pipe-pastebin import *

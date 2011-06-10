@@ -1,13 +1,13 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-# File:                 pastebin.py
+# File:                 pipe-pastebin.py
 # Author:               Lasse Vang Gravesen <gravesenlasse@gmail.com>
-# Description:          Send something to pastebin through a pipe, for GNU/Linux distributions. Example usage: 
+# Description:          Upload file contents to Pastebin, for GNU/Linux. Example usage: 
 # Input:                cat loremipsum | pastebin --syntax text
 # Output:               http://pastebin.com/TNEXMaYE
 # Start date:           10-06-2011 02:24
-# Last edited date:     10-06-2011 23:44
+# Last edited date:     10-06-2011 23:56
 
 import sys
 import argparse
