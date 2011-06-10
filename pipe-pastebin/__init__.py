@@ -1,1 +1,1 @@
-from pipe-pastebin import *
+from pipe_pastebin import *
