@@ -7,7 +7,7 @@
 # Input:                cat loremipsum | pastebin --syntax text
 # Output:               http://pastebin.com/TNEXMaYE
 # Start date:           10-06-2011 02:24
-# Last edited date:     11-06-2011 00:42
+# Last edited date:     11-06-2011 00:50
 
 import sys
 import argparse
@@ -46,7 +46,7 @@ def pastebin(content, syntax=None, private=None):
     return content
 
 def run(content, syntax=None, private=None):
-    out = pastebin(c, syntax=syntax, private=private)
+    out = pastebin(content, syntax=syntax, private=private)
     return out
 
 def main():
