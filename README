@@ -15,12 +15,12 @@ Options:
 
 Requirements & Installation
 ---------------------------
-Pastebin requires Python 2.4 or greater and the argparse module. It can be installed with the standard Python installation procedure:
+pipe-pastebin requires Python 2.4 or greater and the argparse module. It can be installed with the standard Python installation procedure:
 
-    1) Go to the bin/pipe-pastebin for editing and set your api_dev_key and
-    possibly your api_user_key, though you can not do that and just upload to a guest account.
+    1) Go to bin/pipe-pastebin and set your api_dev_key and possibly your api_user_key,
+    though you can also just not do that and just upload as a guest.
 
-    2) Copy the contents of bin/pipe-pastebin to pastebin/pipe-pastebin.py
+    2) Copy the contents of bin/pipe-pastebin to pipe-pastebin/pipe-pastebin.py
 
     3) python setup.py install
 
