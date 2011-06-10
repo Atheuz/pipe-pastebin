@@ -1,4 +1,4 @@
-pastebin 1.0.1 ALPHA
+pastebin 1.0.2 ALPHA
 ====================
 pastebin is a command-line script that uploads file contents to Pastebin.
 
@@ -7,9 +7,11 @@ Example usage:
 cat diff5532.diff | pastebin --syntax diff
 cat loremipsum | pastebin --private 1
 pastebin --content README
+pastebin --text "Oh no, dinosaurs!"
 
 Options:
--c/--content - Set file to send to pastebin, set to stdin on default. 
+-c/--content - Set file to send to pastebin, set to stdin on default.
+-t/--text - Set text to send to pastebin, if you don't want to go through stdin or a file.
 -s/--syntax - Set the syntax to store content in, set to text on default.
 -p/--private - Set private option of paste, set to not private on default.
 

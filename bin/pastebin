@@ -7,22 +7,22 @@
 # Input:                cat loremipsum | pastebin --syntax text
 # Output:               http://pastebin.com/TNEXMaYE
 # Start date:           10-06-2011 02:24
-# Last edited date:     11-06-2011 00:51
+# Last edited date:     11-06-2011 01:12
 
 import sys
 import argparse
 import urllib
 import urllib2
 
-VERSION = "1.0.1"
+VERSION = "1.0.2"
 
 def pastebin(content, syntax=None, private=None):
     api_url = 'http://pastebin.com/api/api_post.php'
-    api_dev_key = ''  # Set this to your api_dev_key
-    api_user_key = '' # Set this to your api_user_key
+    api_dev_key = ''    # Set this to your api_dev_key.
+    api_user_key = ''   # Set this to your api_user_key, if you have one or if you want.
     api_paste_text = content.decode('ascii', 'ignore').encode('utf-8')
-    if private:
-        api_paste_private = private
+    if private == True:
+        api_paste_private = '1'
     else:
         api_paste_private = '0'
     if syntax:
@@ -53,20 +53,26 @@ def main():
     parser = argparse.ArgumentParser(description="Pipe content, or file to pastebin.com")
     parser.add_argument('-c', '--content', action='store', dest='c',
             default=sys.stdin, type=argparse.FileType('r'), help="Set file to send to pastebin, set to stdin on default.")
+    parser.add_argument('-t', '--text', action='store', dest='t', default=None,
+            type=str, help="Set text to send to pastebin, if you don't want to go through stdin or a file, set to None on default")
     parser.add_argument('-s', '--syntax', action='store', dest='s',
             default="text", type=str, help="Set the syntax to store content in, set to text on default.")
-    parser.add_argument('-p', '--private', action='store', dest='p',
-            default="0", type=str, help="Set private option of paste, set to not private on default.")
+    parser.add_argument('-p', '--private', action='store_true', dest='p',
+            default=False, help="Set paste to be private, set to False on default.")
     args = parser.parse_args()
     content = args.c
+    text = args.t
     syntax = args.s
     private = args.p
 
-    if content:
-        content = content.read()
+    if content or text:
+        if text:
+            content = text
+        else:
+            content = content.read()
         print run(content, syntax=syntax, private=private)
     else:
-        pass
+        sys.exit("No content set, quitting.")
 
 if __name__ == '__main__':
     main()
