@@ -1,0 +1,10 @@
+pastebin 1.0.0 ALPHA
+====================
+
+Pastebin is a command-line script that upload content to Pastebin through a pipe.
+
+Requirements & Installation
+---------------------------
+Pastebin requires Python 2.4 or greater and the argparse module. It can be instaleld with the standard Python installation procedure:
+
+python setup.py install
