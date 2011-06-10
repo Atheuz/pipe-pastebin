@@ -4,7 +4,7 @@
 # File:                 pastebin.py
 # Author:               Lasse Vang Gravesen <gravesenlasse@gmail.com>
 # Description:          Send something to pastebin through a pipe, for Debian. Example usage: 
-# Input:                cat diff5532.diff |to_pastebin2.py --format diff
+# Input:                cat diff5532.diff | pastebin --format diff
 # Output:               http://pastebin.com/cQem4AJT
 # Start date:           10-06-2011 02:24
 # Last edited date:     10-06-2011 18:52
