@@ -1,21 +1,32 @@
 pastebin 1.0.0 ALPHA
 ====================
-
 Pastebin is a command-line script that upload content to Pastebin through a pipe.
 
 Example usage:
 
-cat diff5532.diff | pastebin --format diff
+cat diff5532.diff | pastebin --syntax diff
+cat loremipsum | pastebin --private 1
+pastebin --content README
+
+Options:
+-c/--content - Set file to send to pastebin, set to stdin on default. 
+-s/--syntax - Set the syntax to store content in, set to text on default.
+-p/--private - Set private option of paste, set to not private on default.
 
 Requirements & Installation
 ---------------------------
 Pastebin requires Python 2.4 or greater and the argparse module. It can be installed with the standard Python installation procedure:
 
-    python setup.py install
+    1) Go to the bin/pastebin for editing and set your api_dev_key and
+    possibly your api_user_key, though you can not do that and just upload to a guest account.
+
+    2) Copy the contents of bin/pastebin to pastebin/pastebin.py
+
+    3) python setup.py install
+
 
 Available formats
 -----------------
-
 4cs = 4CS
 6502acme = 6502 ACME Cross Assembler
 6502kickass = 6502 Kick Assembler

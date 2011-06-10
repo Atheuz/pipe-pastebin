@@ -3,28 +3,30 @@
 
 # File:                 pastebin.py
 # Author:               Lasse Vang Gravesen <gravesenlasse@gmail.com>
-# Description:          Send something to pastebin through a pipe, for Debian. Example usage: 
-# Input:                cat diff5532.diff | pastebin --format diff
-# Output:               http://pastebin.com/cQem4AJT
+# Description:          Send something to pastebin through a pipe, for GNU/Linux distributions. Example usage: 
+# Input:                cat loremipsum | pastebin --syntax text
+# Output:               http://pastebin.com/TNEXMaYE
 # Start date:           10-06-2011 02:24
-# Last edited date:     10-06-2011 18:52
+# Last edited date:     10-06-2011 23:44
 
 import sys
 import argparse
 import urllib
 import urllib2
-import base64
 
 VERSION = "1.0.0"
 
-def pastebin(x, format_=None):
-    api_url = r'http://pastebin.com/api/api_post.php'
-    api_dev_key = r'8f89b5cf8364b32ad0a1f8a2520614c9'
-    api_user_key = r'cee5dccb7744bde5095e0ff555613bec'
-    api_paste_text = x.decode('ascii', 'ignore').encode('utf-8')
-    api_paste_private = '0'
-    if format_:
-        api_paste_format = format_
+def pastebin(content, syntax=None, private=None):
+    api_url = 'http://pastebin.com/api/api_post.php'
+    api_dev_key = ''  # Set this to your api_dev_key
+    api_user_key = '' # Set this to your api_user_key
+    api_paste_text = content.decode('ascii', 'ignore').encode('utf-8')
+    if private:
+        api_paste_private = private
+    else:
+        api_paste_private = '0'
+    if syntax:
+        api_paste_format = syntax
     else:
         api_paste_format = 'text'
     api_option = 'paste'
@@ -34,33 +36,35 @@ def pastebin(x, format_=None):
             'api_paste_private': api_paste_private,
             'api_paste_format': api_paste_format,
             'api_option': api_option,
-            'api_user_key': api_user_key
     }
+    if api_user_key:
+        values['api_user_key'] = api_user_key
 
     data = urllib.urlencode(values)
     req = urllib2.Request(api_url, data)
     content = urllib2.urlopen(req).read()
     return content
 
-def run(c, f=None):
-    out = pastebin(c, format_=f)
+def run(content, syntax=None, private=None):
+    out = pastebin(c, syntax=syntax, private=private)
     return out
 
 def main():
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description="Pipe content, or file to pastebin.com")
     parser.add_argument('-c', '--content', action='store', dest='c',
-            default=sys.stdin, type=argparse.FileType('r'), help="Set content to send to pastebin")
-    parser.add_argument('-f', '--format', action='store', dest='f',
-            default=None, type=str, help="Set the format to store content in")
+            default=sys.stdin, type=argparse.FileType('r'), help="Set file to send to pastebin, set to stdin on default.")
+    parser.add_argument('-s', '--syntax', action='store', dest='s',
+            default="text", type=str, help="Set the syntax to store content in, set to text on default.")
+    parser.add_argument('-p', '--private', action='store', dest='p',
+            default="0", type=str, help="Set private option of paste, set to not private on default.")
     args = parser.parse_args()
-    c = args.c
-    f = args.f
-    if c:
-        c = c.read()
-        if f:
-            print run(c, f=f)
-        else:
-            print run(c, f='text')
+    content = args.c
+    syntax = args.s
+    private = args.p
+
+    if content:
+        content = content.read()
+        run(content, syntax=syntax, private=private)
     else:
         pass
 
