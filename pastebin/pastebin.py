@@ -7,7 +7,7 @@
 # Input:                cat loremipsum | pastebin --syntax text
 # Output:               http://pastebin.com/TNEXMaYE
 # Start date:           10-06-2011 02:24
-# Last edited date:     11-06-2011 00:50
+# Last edited date:     11-06-2011 00:51
 
 import sys
 import argparse
@@ -64,7 +64,7 @@ def main():
 
     if content:
         content = content.read()
-        run(content, syntax=syntax, private=private)
+        print run(content, syntax=syntax, private=private)
     else:
         pass
 
