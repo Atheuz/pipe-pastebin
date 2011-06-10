@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-# File:                 pipe-pastebin.py
+# File:                 pipe-pastebin
 # Author:               Lasse Vang Gravesen <gravesenlasse@gmail.com>
 # Description:          Upload file contents to Pastebin, for GNU/Linux. Example usage: 
 # Input:                cat loremipsum | pastebin --syntax text
