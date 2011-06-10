@@ -9,9 +9,9 @@ cat diff5532.diff | pastebin --format diff
 
 Requirements & Installation
 ---------------------------
-Pastebin requires Python 2.4 or greater and the argparse module. It can be instaleld with the standard Python installation procedure:
+Pastebin requires Python 2.4 or greater and the argparse module. It can be installed with the standard Python installation procedure:
 
-python setup.py install
+    python setup.py install
 
 Available formats
 -----------------
