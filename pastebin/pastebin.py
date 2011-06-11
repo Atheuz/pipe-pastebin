@@ -7,7 +7,7 @@
 # Input:                cat loremipsum | pastebin --syntax text
 # Output:               http://pastebin.com/TNEXMaYE
 # Start date:           10-06-2011 02:24
-# Last edited date:     11-06-2011 01:40
+# Last edited date:     11-06-2011 02:58
 
 import sys
 import argparse
@@ -62,7 +62,7 @@ def main():
     parser.add_argument('-n', '--name', action='store', dest='n', default=None,
             type=str, help="Set name of paste, default is None.")
     parser.add_argument('-s', '--syntax', action='store', dest='s',
-            default="text", type=str, help="Set syntax of paste default is "
+            default="text", type=str, help="Set syntax of paste, default is "
             "text.")
     parser.add_argument('-p', '--private', action='store_true', dest='p',
             default=False, help="Set paste to be private, default is False.")

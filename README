@@ -15,7 +15,7 @@ Options:
 -c/--content - Set file to send to pastebin, default is stdin.
 -t/--text - Set text to send to pastebin, if you don't want to go through stdin or a file, default is None.
 -n/--name - Set name of paste, default is None.
--s/--syntax - Set syntax of paste default is text.
+-s/--syntax - Set syntax of paste, default is text.
 -p/--private - Set paste to be private, default is False.
 
 Requirements & Installation
