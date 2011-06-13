@@ -7,14 +7,14 @@
 # Input:                cat loremipsum | pastebin --syntax text
 # Output:               http://pastebin.com/TNEXMaYE
 # Start date:           10-06-2011 02:24
-# Last edited date:     11-06-2011 01:59
+# Last edited date:     14-06-2011 00:16
 
 import sys
 import argparse
 import urllib
 import urllib2
 
-VERSION = "1.0.3"
+VERSION = "1.0.4"
 
 def pastebin(content, name=None, syntax=None, private=None):
     api_url = 'http://pastebin.com/api/api_post.php'
@@ -83,5 +83,8 @@ def main():
         sys.exit("No content set, quitting.")
 
 if __name__ == '__main__':
-    main()
+    try:
+        main()
+    except (KeyboardInterrupt, SystemExit):
+        pass
 
